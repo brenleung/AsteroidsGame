@@ -1,16 +1,66 @@
-//your variable declarations here
+
+SpaceShip joe = new SpaceShip();
 public void setup() 
 {
-  //your code here
+  size(1200, 600);
 }
 public void draw() 
 {
-  //your code here
+  noStroke();
+  background(0);
+  joe.move();
+  joe.show();
 }
-class SpaceShip //extends Floater  
-{   
-    //your code here
+class SpaceShip extends Floater  
+{  
+  public SpaceShip(){
+    corners = 4;
+    xCorners = new int [corners];
+    yCorners = new int [corners];
+    xCorners[0] = -16;
+    yCorners[0] = 16;
+    xCorners[1] = -4;
+    yCorners[1] = 0;
+    xCorners[2] = -16;
+    yCorners[2] = -16;
+    xCorners[3] = 16;
+    yCorners[3] = 0;
+    myColor = color(255, 0, 0);
+    myCenterX = 600;
+    myCenterY = 300;
+    myDirectionX = 0;
+    myDirectionY = 0;
+    myPointDirection = 0;
+  }
+  public void setX(int x) {myCenterX = x;}
+  public int getX() {return (int)myCenterX;}
+  public void setY(int y) {myCenterY = y;}
+  public int getY() {return (int)myCenterY;}   
+  public void setDirectionX(double x) {myDirectionX = x;}   
+  public double getDirectionX() {return myDirectionX;} 
+  public void setDirectionY(double y) {myDirectionY = y;} 
+  public double getDirectionY() {return myDirectionY;}
+  public void setPointDirection(int degrees) {myPointDirection = degrees;}   
+  public double getPointDirection() {return myPointDirection;}
 }
+public void keyPressed()
+{
+  if (keyCode == LEFT) {joe.rotate(-10);}
+  if (keyCode == RIGHT) {joe.rotate(10);}
+  if (keyCode == UP) {joe.accelerate(.5);}
+  if (keyCode == DOWN) {joe.accelerate(-.5);}
+  if (key == 32)
+  {
+    joe.setDirectionX(0);
+    joe.setDirectionY(0);
+    joe.setX((int)(Math.random()*1200));
+    joe.setY((int)(Math.random()*600));
+    joe.setPointDirection((int)(Math.random()*360));
+    fill(255);
+    rect(0, 0, 1200, 600);
+  }
+}
+
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
@@ -29,7 +79,7 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   abstract public void setDirectionY(double y);   
   abstract public double getDirectionY();   
   abstract public void setPointDirection(int degrees);   
-  abstract public double getPointDirection(); 
+  abstract public double getPointDirection();
 
   //Accelerates the floater in the direction it is pointing (myPointDirection)   
   public void accelerate (double dAmount)   
