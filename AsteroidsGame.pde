@@ -43,7 +43,7 @@ class SpaceShip extends Floater
   public void setPointDirection(int degrees) {myPointDirection = degrees;}   
   public double getPointDirection() {return myPointDirection;}
 }
-public void keyPressed()
+public void keyReleased()
 {
   if (keyCode == LEFT) {joe.rotate(-10);}
   if (keyCode == RIGHT) {joe.rotate(10);}
@@ -56,8 +56,8 @@ public void keyPressed()
     joe.setX((int)(Math.random()*1200));
     joe.setY((int)(Math.random()*600));
     joe.setPointDirection((int)(Math.random()*360));
-    fill(255);
-    rect(0, 0, 1200, 600);
+    //fill(255);
+    //rect(0, 0, 1200, 600);
   }
 }
 
