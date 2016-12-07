@@ -1,30 +1,107 @@
 
 SpaceShip joe = new SpaceShip();
-Asteroid[] ayy;
+ArrayList<Asteroid> ayy = new ArrayList<Asteroid>();
+public boolean upKey, downKey, ballz;
+Stars[] lel;
+ArrayList <Bullet> balls = new ArrayList <Bullet>();
 
 public void setup() 
 {
   size(1200, 600);
-  ayy = new Asteroid[10];
-  for(int i = 0; i < ayy.length; i++) {ayy[i] = new Asteroid((int)(Math.random()*700),(int)(Math.random()*700));}
+
+  for(int i = 0; i < 10; i++)
+    ayy.add(new Asteroid());
+
+  lel = new Stars[150];
+  for(int i = 0; i < lel.length; i++)
+    lel[i] = new Stars();
+
+  balls = new ArrayList <Bullet>();
 }
 
 public void draw() 
 {
   noStroke();
   background(0);
+
+  for(int i = 0; i < lel.length; i++)
+    lel[i].show();
+
   joe.move();
   joe.show();
-  for(int i = 0; i < ayy.length; i++)
+
+  for(int i = 0; i < ayy.size(); i++)
   {
-    ayy[i].show();
-    ayy[i].move();
+    ayy.get(i).show();
+    ayy.get(i).move();
+  }
+  for(int i = 0; i < ayy.size(); i++)
+  {
+    if(dist(joe.getX(), joe.getY(), ayy.get(i).getX(), ayy.get(i).getY()) <= 35)
+    {
+      ayy.remove(i);
+      ayy.add(new Asteroid());
+    }
+  }
+  //text("myDirectionX: "+ (int)(joe.getDirectionX()), 10, 80);
+  //text("myDirectionY: "+ (int)(joe.getDirectionY()), 10, 100);
+
+  if(upKey == true)
+  {
+    joe.setX((joe.getX()+(int)joe.getDirectionX()));
+    joe.setY((joe.getY()+(int)joe.getDirectionY()));
+    joe.accelerate(.1);
+  }
+  if(upKey == false) 
+  {
+    joe.setX((joe.getX()+(int)joe.getDirectionX()));
+    joe.setY((joe.getY()+(int)joe.getDirectionY()));
+    joe.accelerate(0);
+  }
+  if(downKey == true)
+  { 
+    joe.setX((joe.getX()+(int)joe.getDirectionX()));
+    joe.setY((joe.getY()+(int)joe.getDirectionY()));
+    joe.accelerate(-.1);
+  }
+  if(downKey == false) 
+  {
+    joe.setX((joe.getX()+(int)joe.getDirectionX()));
+    joe.setY((joe.getY()+(int)joe.getDirectionY()));
+    joe.accelerate(0);
+  }
+
+  //if (ballz = true) balls.add(new Bullet());
+
+  for (int i = 0; i < balls.size (); i++)
+  {
+    if(balls.get(i).getX() > 1200 || balls.get(i).getY() > 600 || balls.get(i).getX() < 0 || balls.get(i).getY() < 0)
+      balls.remove(i);
+  }
+  for (int i = 0; i < balls.size (); i++)
+  {
+    balls.get(i).move();
+    balls.get(i).show();
+  }
+
+  for (int x = 0; x < balls.size (); x++)
+  {
+    for (int i = 0; i < ayy.size (); i++)
+
+    {
+      if (dist(ayy.get(i).getX(), ayy.get(i).getY(), balls.get(x).getX(), balls.get(x).getY())<30)
+      {
+        ayy.remove(i);
+        balls.remove(x);
+      }
+    }
   }
 }
 
 class SpaceShip extends Floater  
 {  
-  public SpaceShip(){
+  public SpaceShip()
+  {
     corners = 4;
     xCorners = new int[corners];
     yCorners = new int[corners];
@@ -36,13 +113,14 @@ class SpaceShip extends Floater
     yCorners[2] = -16;
     xCorners[3] = 16;
     yCorners[3] = 0;
-    myColor = color(255, 0, 0);
+    myColor = color(92, 232, 247);
     myCenterX = 600;
     myCenterY = 300;
     myDirectionX = 0;
     myDirectionY = 0;
     myPointDirection = 0;
   }
+
   public void setX(int x) {myCenterX = x;}
   public int getX() {return (int)myCenterX;}
   public void setY(int y) {myCenterY = y;}
@@ -59,8 +137,20 @@ public void keyPressed()
 {
   if (keyCode == LEFT) {joe.rotate(-10);}
   if (keyCode == RIGHT) {joe.rotate(10);}
-  if (keyCode == UP) {joe.accelerate(.3);}
-  if (keyCode == DOWN) {joe.accelerate(-.3);}
+  if (keyCode == UP) 
+  {
+    if(joe.getDirectionX() <= 20 || joe.getDirectionY() <= 20)
+      upKey = true;
+    else
+    {
+      upKey = false;
+    }
+
+  }
+  if (keyCode == DOWN) downKey = true;
+
+  //if (keyCode == 83) ballz = true;
+  if (keyCode == 83) {balls.add(new Bullet(joe));}
 }
 
 public void keyReleased()
@@ -72,17 +162,17 @@ public void keyReleased()
     joe.setX((int)(Math.random()*1200));
     joe.setY((int)(Math.random()*600));
     joe.setPointDirection((int)(Math.random()*360));
-    //fill(255);
-    //rect(0, 0, 1200, 600);
   }
+  if (keyCode == UP) {upKey = false;}
+  if (keyCode == DOWN) {downKey = false;}
+  //if (keyCode == 83) {ballz = false;}
 }
 
 class Asteroid extends SpaceShip
 {
   protected int aRotate;
-  //protected float[] xCorners;   
-  //protected float[] yCorners;
-  public Asteroid(int x, int y) {
+  public Asteroid() 
+  {
     aRotate = (int)(Math.random()*22-11);
     corners = 8;
     xCorners = new int[corners];
@@ -123,7 +213,8 @@ class Asteroid extends SpaceShip
 
   public void move() 
   { 
-    if(myDirectionX == 0) {myDirectionX = 2 - Math.random()*2;}
+    if(myDirectionX == 0) {myDirectionX = 4 - Math.random()*2;}
+    if(myDirectionY == 0) {myDirectionY = 4 - Math.random()*2;}
     myCenterX += myDirectionX;
     myCenterY += myDirectionY;
     rotate(aRotate);
@@ -152,6 +243,21 @@ class Asteroid extends SpaceShip
   }   
 }
 
+public class Stars
+{
+  private int x, y;
+  public Stars()
+  {
+    x = (int)(Math.random()*1200);
+    y = (int)(Math.random()*600);
+  }
+  public void show()
+  {
+    stroke((int)(Math.random()*256), (int)(Math.random()*256), (int)(Math.random()*256));
+    noFill();
+    ellipse(x, y, 10, 10);
+  }
+}
 
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
