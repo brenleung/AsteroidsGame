@@ -1,4 +1,4 @@
-/*class Bullet extends Floater
+/lass Bullet extends Floater
 {
 	public Bullet(Spaceship x)
 	{
@@ -32,5 +32,5 @@
 		myCenterX += myDirectionX;
 		myCenterY += myDirectionY;
 	}
-}*/
-////
+}
+//
