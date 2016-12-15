@@ -134,18 +134,8 @@ public void keyPressed()
 {
   if (keyCode == LEFT) {joe.rotate(-10);}
   if (keyCode == RIGHT) {joe.rotate(10);}
-  if (keyCode == UP) 
-  {
-    if(joe.getDirectionX() <= 20 || joe.getDirectionY() <= 20)
-      upKey = true;
-    else
-    {
-      upKey = false;
-    }
-
-  }
+  if (keyCode == UP) upKey = true;
   if (keyCode == DOWN) downKey = true;
-
   if (key == 83) {balls.add(new Bullet(joe));}
 }
 
