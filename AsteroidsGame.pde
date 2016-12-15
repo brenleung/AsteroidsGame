@@ -50,7 +50,7 @@ public void draw()
   {
     joe.setX((joe.getX()+(int)joe.getDirectionX()));
     joe.setY((joe.getY()+(int)joe.getDirectionY()));
-    joe.accelerate(.1);
+    joe.accelerate(.05);
   }
   if(upKey == false) 
   {
@@ -62,7 +62,7 @@ public void draw()
   { 
     joe.setX((joe.getX()+(int)joe.getDirectionX()));
     joe.setY((joe.getY()+(int)joe.getDirectionY()));
-    joe.accelerate(-.1);
+    joe.accelerate(-.05);
   }
   if(downKey == false) 
   {
