@@ -1,7 +1,7 @@
 
 SpaceShip joe = new SpaceShip();
 ArrayList<Asteroid> ayy = new ArrayList<Asteroid>();
-public boolean upKey, downKey, ballz;
+public boolean upKey, downKey;
 Stars[] lel;
 ArrayList <Bullet> balls = new ArrayList <Bullet>();
 
@@ -43,9 +43,7 @@ public void draw()
       ayy.add(new Asteroid());
     }
   }
-  //text("myDirectionX: "+ (int)(joe.getDirectionX()), 10, 80);
-  //text("myDirectionY: "+ (int)(joe.getDirectionY()), 10, 100);
-
+ 
   if(upKey == true)
   {
     joe.setX((joe.getX()+(int)joe.getDirectionX()));
@@ -70,8 +68,6 @@ public void draw()
     joe.setY((joe.getY()+(int)joe.getDirectionY()));
     joe.accelerate(0);
   }
-
-  //if (ballz = true) balls.add(new Bullet());
 
   for (int i = 0; i < balls.size (); i++)
   {
@@ -150,7 +146,6 @@ public void keyPressed()
   }
   if (keyCode == DOWN) downKey = true;
 
-  //if (keyCode == 83) ballz = true;
   if (key == 83) {balls.add(new Bullet(joe));}
 }
 
@@ -166,7 +161,6 @@ public void keyReleased()
   }
   if (keyCode == UP) {upKey = false;}
   if (keyCode == DOWN) {downKey = false;}
-  //if (keyCode == 83) {ballz = false;}
 }
 
 class Asteroid extends SpaceShip
