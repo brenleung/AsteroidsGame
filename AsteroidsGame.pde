@@ -16,7 +16,6 @@ public void setup()
   for(int i = 0; i < lel.length; i++)
     lel[i] = new Stars();
 
-  balls = new ArrayList <Bullet>();
 }
 
 public void draw() 
