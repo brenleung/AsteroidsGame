@@ -72,15 +72,15 @@ public void draw()
     if(balls.get(i).getX() > 1200 || balls.get(i).getY() > 600 || balls.get(i).getX() < 0 || balls.get(i).getY() < 0)
       balls.remove(i);
   }
-  for (int i = 0; i < balls.size (); i++)
+  for (int i = 0; i < balls.size(); i++)
   {
     balls.get(i).move();
     balls.get(i).show();
   }
 
-  for (int x = 0; x < balls.size (); x++)
+  for (int x = 0; x < balls.size(); x++)
   {
-    for (int i = 0; i < ayy.size (); i++)
+    for (int i = 0; i < ayy.size(); i++)
 
     {
       if (dist(ayy.get(i).getX(), ayy.get(i).getY(), balls.get(x).getX(), balls.get(x).getY())<30)
