@@ -16,7 +16,7 @@ public void setup()
   for(int i = 0; i < lel.length; i++)
     lel[i] = new Stars();
 
-  balls = new ArrayList <Bullet>();
+  //balls = new ArrayList <Bullet>();
 }
 
 public void draw() 
@@ -93,6 +93,7 @@ public void draw()
       {
         ayy.remove(i);
         balls.remove(x);
+        break;
       }
     }
   }
@@ -150,7 +151,7 @@ public void keyPressed()
   if (keyCode == DOWN) downKey = true;
 
   //if (keyCode == 83) ballz = true;
-  if (keyCode == 83) {balls.add(new Bullet(joe));}
+  if (key == 's') {balls.add(new Bullet(joe));}
 }
 
 public void keyReleased()
