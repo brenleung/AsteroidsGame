@@ -150,7 +150,7 @@ public void keyPressed()
   }
   if (keyCode == DOWN) downKey = true;
 
-  if (keyCode == 83) ballz = true;
+  if (key == 83) ballz = true;
   //if (key == 83) {balls.add(new Bullet(joe));}
 }
 
