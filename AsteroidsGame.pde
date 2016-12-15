@@ -242,7 +242,7 @@ public class Stars
   }
 }
 
-/*class Bullet extends Floater
+class Bullet extends Floater
 {
   public Bullet(Spaceship x)
   {
@@ -276,7 +276,7 @@ public class Stars
     myCenterX += myDirectionX;
     myCenterY += myDirectionY;
   }
-}*/
+}
 
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
@@ -355,4 +355,3 @@ abstract class Floater //Do NOT modify the Floater class! Make changes in the Sp
   }   
 } 
 
-////
