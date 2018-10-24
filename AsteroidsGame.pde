@@ -1,10 +1,23 @@
-//your variable declarations here
+Spaceship flyer;
+int DegreesOfRotation = 0;
 public void setup() 
 {
-  //your code here
+	size(500,500);
+    flyer = new Spaceship();
 }
 public void draw() 
 {
-  //your code here
+    flyer.show();
+    System.out.println(DegreesOfRotation);
 }
-
+public void keyTyped()
+{
+	if(key == 'a')
+	{
+	   DegreesOfRotation = DegreesOfRotation-7;;
+	}
+	if(key == 'd')
+	{
+	   DegreesOfRotation = DegreesOfRotation+7;
+	}
+}
