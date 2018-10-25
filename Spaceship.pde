@@ -30,4 +30,11 @@ class Spaceship extends Floater
 	public double getDirectionY() {return myDirectionY;}
 	public void setPointDirection (int degrees) {myPointDirection = degrees;}
 	public double getPointDirection() {return myPointDirection;}
+
+	public void accelerate (double accAmount)
+	{
+		double dRadians = myPointDirection*(Math.PI/180);
+		myDirectionX += ((accAmount)*Math.cos(dRadians));
+		myDirectionY += ((accAmount)*Math.sin(dRadians));
+	}
 }
