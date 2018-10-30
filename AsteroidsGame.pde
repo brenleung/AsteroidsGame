@@ -18,6 +18,9 @@ public void draw()
     for (int i = 0; i < shiny.length; i++)
     {
     	shiny[i].show();
+        if (flyer.getDirectionX() > 0 || flyer.getDirectionX() < 0 || flyer.getDirectionY() > 0 || flyer.getDirectionY() < 0) {
+            shiny[i].move();
+        }   
     }
     flyer.show();
     flyer.move();

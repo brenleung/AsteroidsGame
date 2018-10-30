@@ -8,8 +8,13 @@ class Star //note that this class does NOT extend Floater
    }
    void show ()
    {
-   	  noStroke();
-   	  fill(255,255,153,125);
-   	  ellipse(myX,myY,mySize,mySize);
+   	noStroke();
+   	fill(255,255,153,125);
+   	ellipse(myX,myY,mySize,mySize);
+   }
+   void move ()
+   {
+      myX = myX + (int).5;
+      myY = myY + (int).5;
    }
 }
