@@ -3,10 +3,10 @@ Star[] shiny;
 int DegreesOfRotation = 0;
 public void setup() 
 {
-	background(14);
-	size(500,500);
+	background(0);
+	size(750,750);
     flyer = new Spaceship();
-    shiny = new Star[250];
+    shiny = new Star[400];
     for (int i = 0; i < shiny.length; i++)
     {
     	shiny[i] = new Star();
@@ -14,7 +14,7 @@ public void setup()
 }
 public void draw() 
 {
-	background(14);
+	background(0);
     for (int i = 0; i < shiny.length; i++)
     {
     	shiny[i].show();
@@ -36,10 +36,19 @@ public void keyPressed()
     //movement:
     if (key == 'w')
     {
-       flyer.accelerate(0.18);
+       flyer.accelerate(0.15);
     }
     if (key == 's')
     {
-       flyer.accelerate(-0.18);
+       flyer.accelerate(-0.15);
+    }
+    if (key == 'h')
+    {
+       flyer.accelerate(0);
+       flyer.setDirectionX(0);
+       flyer.setDirectionY(0);
+       flyer.setPointDirection((int)(Math.random()*360));
+       flyer.setX((int)(Math.random()*800)+25);
+       flyer.setY((int)(Math.random()*800)+25);
     }
 }
