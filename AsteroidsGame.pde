@@ -15,15 +15,12 @@ public void setup()
 public void draw() 
 {
 	background(0);
-    for (int i = 0; i < shiny.length; i++)
-    {
-    	shiny[i].show();
-        if (flyer.getDirectionX() > 0 || flyer.getDirectionX() < 0 || flyer.getDirectionY() > 0 || flyer.getDirectionY() < 0) {
-            shiny[i].move();
-        }   
-    }
-    flyer.show();
-    flyer.move();
+  for (int i = 0; i < shiny.length; i++)
+  {
+  	shiny[i].show(); 
+  }
+  flyer.show();
+  flyer.move();
 }
 public void keyPressed()
 {
@@ -36,22 +33,21 @@ public void keyPressed()
 	{
 	   flyer.myPointDirection = flyer.myPointDirection+11;
 	}
-    //movement:
-    if (key == 'w')
-    {
-       flyer.accelerate(0.15);
-    }
-    if (key == 's')
-    {
-       flyer.accelerate(-0.15);
-    }
-    if (key == 'h')
-    {
-       flyer.accelerate(0);
-       flyer.setDirectionX(0);
-       flyer.setDirectionY(0);
-       flyer.setPointDirection((int)(Math.random()*360));
-       flyer.setX((int)(Math.random()*800)+25);
-       flyer.setY((int)(Math.random()*800)+25);
-    }
+  //movement:
+  if (key == 'w')
+  {
+     flyer.accelerate(0.15);
+  }
+  if (key == 's')
+  {
+     flyer.accelerate(-0.15);
+  }
+  if (key == 'h')
+  {
+     flyer.setDirectionX(0);
+     flyer.setDirectionY(0);
+     flyer.setPointDirection((int)(Math.random()*360));
+     flyer.setX((int)(Math.random()*800)+25);
+     flyer.setY((int)(Math.random()*800)+25);
+  }
 }
