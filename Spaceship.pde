@@ -65,6 +65,7 @@ class Spaceship extends Floater
 	    	strokeWeight(3);
 	    	line(-18,-4,-10,-4);
 	    	line(-18,4,-10,4);
+	    	strokeWeight(0);
 	    }
 	    //"unrotate" and "untranslate" in reverse order
 	    rotate(-1*dRadians);
