@@ -19,6 +19,7 @@ public void draw()
   {
   	shiny[i].show(); 
   }
+  strokeWeight(0);
   flyer.show();
   flyer.move();
 }
