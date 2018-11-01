@@ -37,11 +37,11 @@ public void keyPressed()
   //movement:
   if (key == 'w')
   {
-     flyer.accelerate(0.15);
+     flyer.accelerate(0.12);
   }
   if (key == 's')
   {
-     flyer.accelerate(-0.15);
+     flyer.accelerate(-0.12);
   }
   if (key == 'h')
   {
