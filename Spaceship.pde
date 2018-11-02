@@ -19,7 +19,7 @@ class Spaceship extends Floater
 		myPointDirection = 0;
 	}
 
-    //setters & getters:
+    //accessors/mutators:
 	public void setX(int x) {myCenterX = x;}
 	public int getX() {return (int)myCenterX;}
 	public void setY (int y) {myCenterY = y;}
@@ -37,7 +37,7 @@ class Spaceship extends Floater
 		myDirectionX += ((accAmount)*Math.cos(dRadians));
 		myDirectionY += ((accAmount)*Math.sin(dRadians));
 	}
-	public void show ()  //Draws the floater at the current position  
+	public void show ()  //Copied from floater class to add rockets onto spaceship
     {             
 	    fill(myColor);   
 	    stroke(myColor);    
