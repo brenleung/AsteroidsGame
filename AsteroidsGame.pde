@@ -1,15 +1,21 @@
 Spaceship flyer;
 Star[] shiny;
+Asteroid[] rock;
 int DegreesOfRotation = 0;
 public void setup() 
 {
 	background(0);
 	size(750,750);
     flyer = new Spaceship();
-    shiny = new Star[400];
+    shiny = new Star[650];
     for (int i = 0; i < shiny.length; i++)
     {
     	shiny[i] = new Star();
+    }
+    rock = new Asteroid[50];
+    for (int j = 0; j < rock.length; j++)
+    {
+      rock[j] = new Asteroid();
     }
 }
 public void draw() 
@@ -17,7 +23,14 @@ public void draw()
 	background(0);
   for (int i = 0; i < shiny.length; i++)
   {
-  	shiny[i].show(); 
+    shiny[i].show();
+    shiny[i].move(); 
+  }
+  for (int j = 0; j < rock.length; j++)
+  {
+    strokeWeight(25);
+    rock[j].show();
+    rock[j].move();
   }
   strokeWeight(3);
   flyer.show();
