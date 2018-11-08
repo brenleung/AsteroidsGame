@@ -7,12 +7,12 @@ public void setup()
 	background(0);
 	size(750,750);
     flyer = new Spaceship();
-    shiny = new Star[650];
+    shiny = new Star[700];
     for (int i = 0; i < shiny.length; i++)
     {
     	shiny[i] = new Star();
     }
-    rock = new Asteroid[50];
+    rock = new Asteroid[40];
     for (int j = 0; j < rock.length; j++)
     {
       rock[j] = new Asteroid();
