@@ -26,15 +26,15 @@ public void draw()
     shiny[i].show();
     shiny[i].move(); 
   }
+  strokeWeight(3);
+  flyer.show();
+  flyer.move();
   for (int j = 0; j < rock.length; j++)
   {
     strokeWeight(25);
     rock[j].show();
     rock[j].move();
   }
-  strokeWeight(3);
-  flyer.show();
-  flyer.move();
 }
 public void keyPressed()
 {
