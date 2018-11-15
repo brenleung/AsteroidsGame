@@ -1,6 +1,6 @@
 Spaceship flyer;
 Star[] shiny;
-Asteroid[] rock;
+ArrayList<Asteroid> rock = new ArrayList<Asteroid>();
 int DegreesOfRotation = 0;
 public void setup() 
 {
@@ -12,10 +12,8 @@ public void setup()
     {
     	shiny[i] = new Star();
     }
-    rock = new Asteroid[40];
-    for (int j = 0; j < rock.length; j++)
-    {
-      rock[j] = new Asteroid();
+    for (int j = 0; j < 35; j++) {
+      rock.add(new Asteroid());
     }
 }
 public void draw() 
@@ -29,11 +27,20 @@ public void draw()
   strokeWeight(3);
   flyer.show();
   flyer.move();
-  for (int j = 0; j < rock.length; j++)
-  {
-    strokeWeight(25);
-    rock[j].show();
-    rock[j].move();
+  for (int j = 0; j < rock.size(); j++) {
+    strokeWeight(15);
+    rock.get(j).show();
+    rock.get(j).move();
+    float z = dist(flyer.getX(), flyer.getY(), rock.get(j).getX(), rock.get(j).getY());
+    if (z < 32) {
+      rock.remove(j);
+    }
+  }
+  int size = rock.size();
+  if (size < 15) {
+    for (int j = 0; j < 20; j++) {
+      rock.add(new Asteroid());
+    }
   }
 }
 public void keyPressed()
