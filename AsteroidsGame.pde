@@ -42,6 +42,7 @@ public void draw()
     float d = dist(rock.get(k).getX(), rock.get(k).getY(), flyer.getX(), flyer.getY());
     if (d < 32) {
       rock.remove(k);
+      break;
     }
   }
 }
