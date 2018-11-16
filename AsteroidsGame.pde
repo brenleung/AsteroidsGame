@@ -27,6 +27,14 @@ public void draw()
   strokeWeight(3);
   flyer.show();
   flyer.move();
+  for (int i = 0; i < rock.size(); i++)
+  {
+    if (dist((int)rock.get(i).getX(), (int)rock.get(i).getY(), (int)flyer.getX(), (int)flyer.getY()) < 32)
+    {
+      rock.remove(rock.get(i));
+      break;
+    }
+  }
   for (int j = 0; j < rock.size(); j++) {
     strokeWeight(15);
     rock.get(j).show();
@@ -44,14 +52,6 @@ public void draw()
       rock.add(new Asteroid());
     }
   }
-  for (int i = 0; i < rock.size(); i++)
-    {
-      if (dist((int)rock.get(i).getX(), (int)rock.get(i).getY(), (int)flyer.getX(), (int)flyer.getY()) < 32)
-      {
-        rock.remove(rock.get(i));
-        break;
-      }
-    }
 }
 public void keyPressed()
 {
