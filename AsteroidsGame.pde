@@ -44,6 +44,12 @@ public void draw()
       rock.add(new Asteroid());
     }
   }
+  for (int j = 0; j < 20; j++) {
+    float d = dist(rock.get(j).getX(), rock.get(j).getY(), flyer.getX(), flyer.getY());
+    if (d < 32) {
+        rock.remove(j);
+      }
+    }
 }
 public void keyPressed()
 {
