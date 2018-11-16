@@ -30,13 +30,13 @@ public void draw()
   for (int j = 0; j < rock.size(); j++) {
     strokeWeight(15);
     rock.get(j).show();
-    /*
     rock.get(j).move();
-    */
+    /*
     float z = dist(flyer.getX(), flyer.getY(), rock.get(j).getX(), rock.get(j).getY());
     if (z < 32) {
       rock.remove(j);
     }
+    */
   }
   int size = rock.size();
   if (size < 15) {
