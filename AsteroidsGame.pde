@@ -14,6 +14,7 @@ public void setup()
     }
     for (int j = 0; j < 35; j++) {
       rock.add(new Asteroid());
+      break;
     }
 }
 public void draw() 
@@ -31,18 +32,16 @@ public void draw()
     strokeWeight(15);
     rock.get(j).show();
     rock.get(j).move();
+    float d = dist(rock.get(j).getX(), rock.get(j).getY(), flyer.getX(), flyer.getY());
+    if (d < 32) {
+      rock.remove(j);
+      break;
+    }
   }
   int size = rock.size();
   if (size < 15) {
     for (int j = 0; j < 20; j++) {
       rock.add(new Asteroid());
-    }
-  }
-  for (int k = 0; k < rock.size(); k++) {
-    float d = dist(rock.get(k).getX(), rock.get(k).getY(), flyer.getX(), flyer.getY());
-    if (d < 32) {
-      rock.remove(k);
-      break;
     }
   }
 }
