@@ -24,15 +24,16 @@ public void draw()
     shiny[i].show();
     shiny[i].move(); 
   }
-  strokeWeight(3);
   for (int j = 0; j < rock.size(); j++) {
     strokeWeight(15);
     rock.get(j).show();
     rock.get(j).move();
+    /*
     float d = dist(rock.get(j).getX(), rock.get(j).getY(), flyer.getX(), flyer.getY());
     if (d < 32) {
       rock.remove(j);
     }
+    */
   }
   int size = rock.size();
   if (size < 15) {
