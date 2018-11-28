@@ -37,6 +37,7 @@ class Spaceship extends Floater
 		myDirectionX += ((accAmount)*Math.cos(dRadians));
 		myDirectionY += ((accAmount)*Math.sin(dRadians));
 	}
+/*
 	public void show ()  //Copied from floater class to add rockets onto spaceship
     {             
 	    fill(myColor);   
@@ -71,4 +72,5 @@ class Spaceship extends Floater
 	    rotate(-1*dRadians);
 	    translate(-1*(float)myCenterX, -1*(float)myCenterY);
     }
+    */
 }
