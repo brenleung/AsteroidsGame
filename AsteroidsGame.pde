@@ -32,6 +32,8 @@ public void draw()
    strokeWeight(10);
    rocks.get(i).show();
    rocks.get(i).move();
+   rocks.get(i).getX();
+   rocks.get(i).getY();
    float d = dist(flyer.getX(), flyer.getY(), 0, 0);
    if (d < 20) {
      rocks.remove(i);
