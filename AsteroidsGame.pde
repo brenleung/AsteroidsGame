@@ -29,12 +29,14 @@ public void draw()
   flyer.move();
   for (int i = 0; i < rocks.size(); i++)
   {
-   rocks.get(i).show();
-   rocks.get(i).move();
    if (dist(rocks.get(i).getX(), rocks.get(i).getY(), flyer.getX(), flyer.getY()) < 32)
     {
       rocks.remove(i);
     }
+   else {
+     rocks.get(i).show();
+     rocks.get(i).move();
+   }
   }
   int size = rocks.size();
   if (size < 15) {
