@@ -24,14 +24,14 @@ public void draw()
     shiny[i].show();
     //shiny[i].move(); 
   }
-  for (int j = 0; j < rocks.size(); j++) {
-    float d = dist(rocks.get(j).getX(), rocks.get(j).getY(), flyer.getX(), flyer.getY());
-    if (d < 32) {
-      rocks.remove(j);
+  for (int i = 0; i < rocks.size(); i++)
+  {
+   rocks.get(i).show();
+   rocks.get(i).move();
+   if (dist(rocks.get(i).getX(), rocks.get(i).getY(), flyer.getX(), flyer.getY()) < 20)
+    {
+      rocks.remove(i);
     }
-    strokeWeight(15);
-    rocks.get(j).show();
-    rocks.get(j).move();
   }
   int size = rocks.size();
   if (size < 15) {
