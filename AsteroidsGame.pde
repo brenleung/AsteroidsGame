@@ -12,7 +12,7 @@ public void setup()
     {
     	shiny[i] = new Star();
     }
-    for (int j = 0; j < 35; j++) {
+    for (int j = 0; j < 1; j++) {
       rocks.add(new Asteroid());
     }
 }
