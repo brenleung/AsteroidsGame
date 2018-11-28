@@ -22,7 +22,7 @@ public void draw()
   for (int i = 0; i < shiny.length; i++)
   {
     shiny[i].show();
-    //shiny[i].move(); 
+    shiny[i].move(); 
   }
   for (int i = 0; i < rocks.size(); i++)
   {
@@ -39,7 +39,6 @@ public void draw()
       rocks.add(new Asteroid());
     }
   }
-  strokeWeight(3);
   flyer.show();
   flyer.move();
 }
