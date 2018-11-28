@@ -37,7 +37,6 @@ public void draw()
   {
     float d = dist(flyer.getX(), flyer.getY(), rocks.get(j).getX(), rocks.get(j).getY());
     if (d < 20) {
-     rocks.remove(j);
     }
   }
   int size = rocks.size();
