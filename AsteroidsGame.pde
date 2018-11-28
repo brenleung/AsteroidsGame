@@ -24,11 +24,14 @@ public void draw()
     shiny[i].show();
     shiny[i].move(); 
   }
+  flyer.show();
+  flyer.move();
   for (int i = 0; i < rocks.size(); i++)
   {
    rocks.get(i).show();
    rocks.get(i).move();
-   if (dist(rocks.get(i).getX(), rocks.get(i).getY(), flyer.getX(), flyer.getY()) < 20)
+   int d = int(dist(rocks.get(i).getX(), rocks.get(i).getY(), flyer.getX(), flyer.getY()));
+   if (d < 30)
     {
       rocks.remove(i);
     }
@@ -39,8 +42,6 @@ public void draw()
       rocks.add(new Asteroid());
     }
   }
-  flyer.show();
-  flyer.move();
 }
 public void keyPressed()
 {
