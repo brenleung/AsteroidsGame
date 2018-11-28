@@ -32,19 +32,23 @@ public void draw()
    strokeWeight(10);
    rocks.get(i).show();
    rocks.get(i).move();
-   rocks.get(i).getX();
-   rocks.get(i).getY();
-   float d = dist(flyer.getX(), flyer.getY(), 0, 0);
-   if (d < 20) {
-     rocks.remove(i);
-   }
+   for(int j = 0; j < rocks.size(); j++)
+   {
+     if(dist(flyer.getX(), flyer.getY(), rocks.get(j).getX(), rocks.get(j).getY()) <= 35)
+     {
+       rocks.remove(j);
+       rocks.add(new Asteroid());
+     }
+   }  
   }
+  /*
   int size = rocks.size();
   if (size < 15) {
     for (int j = 0; j < 20; j++) {
       rocks.add(new Asteroid());
     }
   }
+  */
 }
 public void keyPressed()
 {
