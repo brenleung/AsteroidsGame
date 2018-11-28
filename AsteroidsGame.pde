@@ -30,11 +30,13 @@ public void draw()
   {
    rocks.get(i).show();
    rocks.get(i).move();
+   /*
    int d = int(dist(rocks.get(i).getX(), rocks.get(i).getY(), flyer.getX(), flyer.getY()));
    if (d < 30)
     {
       rocks.remove(i);
     }
+   */
   }
   int size = rocks.size();
   if (size < 15) {
