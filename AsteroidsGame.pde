@@ -1,6 +1,6 @@
 Spaceship flyer;
 Star[] shiny;
-ArrayList<Asteroid> rock = new ArrayList<Asteroid>();
+ArrayList<Asteroid> rocks = new ArrayList<Asteroid>();
 int DegreesOfRotation = 0;
 public void setup() 
 {
@@ -13,7 +13,7 @@ public void setup()
     	shiny[i] = new Star();
     }
     for (int j = 0; j < 35; j++) {
-      rock.add(new Asteroid());
+      rocks.add(new Asteroid());
     }
 }
 public void draw() 
@@ -22,23 +22,21 @@ public void draw()
   for (int i = 0; i < shiny.length; i++)
   {
     shiny[i].show();
-    shiny[i].move(); 
+    //shiny[i].move(); 
   }
-  for (int j = 0; j < rock.size(); j++) {
-    strokeWeight(15);
-    rock.get(j).show();
-    rock.get(j).move();
-    /*
-    float d = dist(rock.get(j).getX(), rock.get(j).getY(), flyer.getX(), flyer.getY());
+  for (int j = 0; j < rocks.size(); j++) {
+    float d = dist(rocks.get(j).getX(), rocks.get(j).getY(), flyer.getX(), flyer.getY());
     if (d < 32) {
-      rock.remove(j);
+      rocks.remove(j);
     }
-    */
+    strokeWeight(15);
+    rocks.get(j).show();
+    rocks.get(j).move();
   }
-  int size = rock.size();
+  int size = rocks.size();
   if (size < 15) {
     for (int j = 0; j < 20; j++) {
-      rock.add(new Asteroid());
+      rocks.add(new Asteroid());
     }
   }
   strokeWeight(3);
