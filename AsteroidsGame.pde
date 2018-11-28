@@ -24,10 +24,12 @@ public void draw()
     shiny[i].show();
     shiny[i].move(); 
   }
+  strokeWeight(3);
   flyer.show();
   flyer.move();
   for (int i = 0; i < rocks.size(); i++)
   {
+   strokeWeight(10);
    rocks.get(i).show();
    rocks.get(i).move();
    float d = dist(flyer.getX(), flyer.getY(), rocks.get(i).getX(), rocks.get(i).getY());
