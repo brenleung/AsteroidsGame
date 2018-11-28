@@ -20,8 +20,8 @@ class Asteroid extends Floater
 		xCorners[6] = 6;
 		yCorners[6] = -9;
 		myColor = color(153, 153, 153);
-		myCenterX = (int)(Math.random()*750);
-		myCenterY = (int)(Math.random()*750);
+		myCenterX = (int)(Math.random()*800);
+		myCenterY = (int)(Math.random()*800);
 		myDirectionX = (Math.random()*4)-1.5;
 		myDirectionY = (Math.random()*4)-1.5;
 		myPointDirection = (int)(Math.random()*360);
@@ -31,7 +31,7 @@ class Asteroid extends Floater
 	public void setX (int x) {myCenterX = x;}
 	public int getX() {return (int)myCenterX;}
 	public void setY (int y) {myCenterY = y;}
-	public int getY() {return(int)myCenterY;}
+	public int getY() {return (int)myCenterY;}
 	public void setDirectionX (double x) {myDirectionX = x;}
 	public double getDirectionX() {return myDirectionX;}
 	public void setDirectionY (double y) {myDirectionY = y;}
