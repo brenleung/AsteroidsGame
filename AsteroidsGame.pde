@@ -1,6 +1,7 @@
 Spaceship flyer;
 Star[] shiny;
 ArrayList<Asteroid> rocks = new ArrayList<Asteroid>();
+ArrayList<Bullet> bill = new ArrayList<Bullet>();
 int DegreesOfRotation = 0;
 public void setup() 
 {
@@ -38,6 +39,11 @@ public void draw()
      rocks.add(new Asteroid());
    }
   }
+  for (int i = 0; i < bill.size(); i++)
+  {
+    bill.get(i).show();
+    bill.get(i).move();
+  }
 }
 public void keyPressed()
 {
@@ -66,5 +72,9 @@ public void keyPressed()
      flyer.setPointDirection((int)(Math.random()*360));
      flyer.setX((int)(Math.random()*800));
      flyer.setY((int)(Math.random()*800));
+  }
+  if (key == ' ')
+  {
+      bill.add(new Bullet());
   }
 }
