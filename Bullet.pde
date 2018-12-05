@@ -7,7 +7,7 @@ class Bullet extends Floater
 		myPointDirection = flyer.getPointDirection();
 		double dRadians = myPointDirection*(Math.PI/180);
 		myDirectionX = (5 * Math.cos(dRadians)) + flyer.getDirectionX();
-		myDirectionY = (5 * Math.cos(dRadians)) + flyer.getDirectionY();
+		myDirectionY = (5 * Math.sin(dRadians)) + flyer.getDirectionY();
 	}
 
 	public void setX(int x) {myCenterX = x;}
@@ -23,7 +23,7 @@ class Bullet extends Floater
 
 	public void show() {
 		noStroke();
-		fill(255);
-		ellipse((int)myCenterX,(int)myCenterY,15,15);
+		fill(27,128,164);
+		ellipse((float)myCenterX,(float)myCenterY,5,5);
 	}
 }

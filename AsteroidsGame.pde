@@ -7,15 +7,15 @@ public void setup()
 {
 	background(0);
 	size(800,800);
-    flyer = new Spaceship();
-    shiny = new Star[700];
-    for (int i = 0; i < shiny.length; i++)
-    {
-    	shiny[i] = new Star();
-    }
-    for (int j = 0; j < 35; j++) {
-      rocks.add(new Asteroid());
-    }
+  flyer = new Spaceship();
+  shiny = new Star[700];
+  for (int i = 0; i < shiny.length; i++)
+  {
+  	shiny[i] = new Star();
+  }
+  for (int j = 0; j < 35; j++) {
+    rocks.add(new Asteroid());
+  }
 }
 public void draw() 
 {
@@ -43,6 +43,15 @@ public void draw()
   {
     bill.get(i).show();
     bill.get(i).move();
+  }
+  for (int i = 0; i < rocks.size(); i++) {
+    for (int j = 0; j < bill.size(); j++) {
+      if (dist(bill.get(j).getX(), bill.get(j).getY(), rocks.get(i).getX(), rocks.get(i).getY()) < 15) {
+        bill.remove(j);
+        rocks.remove(i);
+        break;
+      }
+    } 
   }
 }
 public void keyPressed()
@@ -75,6 +84,6 @@ public void keyPressed()
   }
   if (key == ' ')
   {
-      bill.add(new Bullet());
+      bill.add(0, new Bullet(flyer));
   }
 }
