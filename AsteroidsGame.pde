@@ -49,6 +49,7 @@ public void draw()
       if (dist(bill.get(j).getX(), bill.get(j).getY(), rocks.get(i).getX(), rocks.get(i).getY()) < 15) {
         bill.remove(j);
         rocks.remove(i);
+        rocks.add(new Asteroid());
         break;
       }
     } 
@@ -84,6 +85,6 @@ public void keyPressed()
   }
   if (key == ' ')
   {
-      bill.add(0, new Bullet(flyer));
+     bill.add(0, new Bullet(flyer));
   }
 }
