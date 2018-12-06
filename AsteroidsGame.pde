@@ -54,6 +54,11 @@ public void draw()
       }
     } 
   }
+  for (int i = 0; i < bill.size(); i++) {
+    if ((bill.get(i).getX() > 800) || (bill.get(i).getX() < 0) || (bill.get(i).getY() > 800) || (bill.get(i).getY() < 0)) {
+      bill.remove(i);
+    }
+  }
 }
 public void keyPressed()
 {
