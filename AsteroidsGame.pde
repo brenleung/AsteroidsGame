@@ -3,6 +3,8 @@ Star[] shiny;
 ArrayList<Asteroid> rocks = new ArrayList<Asteroid>();
 ArrayList<Bullet> bill = new ArrayList<Bullet>();
 int DegreesOfRotation = 0;
+boolean gameOver = false;
+int health = 100;
 public void setup() 
 {
 	background(0);
@@ -19,45 +21,62 @@ public void setup()
 }
 public void draw() 
 {
-	background(0);
-  for (int i = 0; i < shiny.length; i++)
-  {
-    shiny[i].show();
-    shiny[i].move(); 
-  }
-  strokeWeight(3);
-  flyer.show();
-  flyer.move();
-  for (int i = 0; i < rocks.size(); i++)
-  {
-   strokeWeight(10);
-   rocks.get(i).show();
-   rocks.get(i).move();
-   if(dist(flyer.getX(), flyer.getY(), rocks.get(i).getX(), rocks.get(i).getY()) < 35)
-   {
-     rocks.remove(i);
-     rocks.add(new Asteroid());
-   }
-  }
-  for (int i = 0; i < bill.size(); i++)
-  {
-    bill.get(i).show();
-    bill.get(i).move();
-  }
-  for (int i = 0; i < rocks.size(); i++) {
-    for (int j = 0; j < bill.size(); j++) {
-      if (dist(bill.get(j).getX(), bill.get(j).getY(), rocks.get(i).getX(), rocks.get(i).getY()) < 15) {
-        bill.remove(j);
-        rocks.remove(i);
-        rocks.add(new Asteroid());
-        break;
-      }
-    } 
-  }
-  for (int i = 0; i < bill.size(); i++) {
-    if ((bill.get(i).getX() > 800) || (bill.get(i).getX() < 0) || (bill.get(i).getY() > 800) || (bill.get(i).getY() < 0)) {
-      bill.remove(i);
+  if (gameOver == false) {
+  	background(0);
+    for (int i = 0; i < shiny.length; i++)
+    {
+      shiny[i].show();
+      shiny[i].move(); 
     }
+    strokeWeight(3);
+    flyer.show();
+    flyer.move();
+    for (int i = 0; i < rocks.size(); i++)
+    {
+     strokeWeight(10);
+     rocks.get(i).show();
+     rocks.get(i).move();
+     if(dist(flyer.getX(), flyer.getY(), rocks.get(i).getX(), rocks.get(i).getY()) < 35)
+     {
+       rocks.remove(i);
+       rocks.add(new Asteroid());
+       health = health - 8;
+     }
+    }
+    for (int i = 0; i < bill.size(); i++)
+    {
+      bill.get(i).show();
+      bill.get(i).move();
+    }
+    for (int i = 0; i < rocks.size(); i++) {
+      for (int j = 0; j < bill.size(); j++) {
+        if (dist(bill.get(j).getX(), bill.get(j).getY(), rocks.get(i).getX(), rocks.get(i).getY()) < 15) {
+          bill.remove(j);
+          rocks.remove(i);
+          rocks.add(new Asteroid());
+          break;
+        }
+      } 
+    }
+    for (int i = 0; i < bill.size(); i++) {
+      if ((bill.get(i).getX() > 800) || (bill.get(i).getX() < 0) || (bill.get(i).getY() > 800) || (bill.get(i).getY() < 0)) {
+        bill.remove(i);
+      }
+    }
+  }
+  fill(255);
+  textSize(20);
+  text("Health: " + health, 25, 775);
+  if (health < 0) {
+    gameOver = true;
+  }
+  if (gameOver == true) {
+    fill(0);
+    rect(-10,-10,850,850);
+    fill(255,0,0);
+    textSize(30);
+    text("GAME OVER!", 300, 375);
+    text("press r to restart", 275, 425);
   }
 }
 public void keyPressed()
@@ -91,5 +110,10 @@ public void keyPressed()
   if (key == ' ')
   {
      bill.add(0, new Bullet(flyer));
+  }
+  if (key == 'r' && gameOver == true)
+  {
+     gameOver = false;
+     health = 100;
   }
 }
