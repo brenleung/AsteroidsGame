@@ -5,6 +5,7 @@ ArrayList<Bullet> bill = new ArrayList<Bullet>();
 int DegreesOfRotation = 0;
 boolean gameOver = false;
 int health = 100;
+int score = 0;
 public void setup() 
 {
 	background(0);
@@ -33,14 +34,15 @@ public void draw()
     flyer.move();
     for (int i = 0; i < rocks.size(); i++)
     {
-     strokeWeight(10);
+     strokeWeight(15);
      rocks.get(i).show();
      rocks.get(i).move();
-     if(dist(flyer.getX(), flyer.getY(), rocks.get(i).getX(), rocks.get(i).getY()) < 35)
+     if(dist(flyer.getX(), flyer.getY(), rocks.get(i).getX(), rocks.get(i).getY()) < 38)
      {
        rocks.remove(i);
        rocks.add(new Asteroid());
        health = health - 8;
+       score = score - 15;
      }
     }
     for (int i = 0; i < bill.size(); i++)
@@ -54,6 +56,7 @@ public void draw()
           bill.remove(j);
           rocks.remove(i);
           rocks.add(new Asteroid());
+          score = score + 10;
           break;
         }
       } 
@@ -67,6 +70,7 @@ public void draw()
   fill(255);
   textSize(20);
   text("Health: " + health, 25, 775);
+  text("Score: " + score, 25, 750);
   if (health < 0) {
     gameOver = true;
   }
@@ -75,8 +79,9 @@ public void draw()
     rect(-10,-10,850,850);
     fill(255,0,0);
     textSize(30);
-    text("GAME OVER!", 300, 375);
-    text("press r to restart", 275, 425);
+    text("final score: " + score, 275, 450);
+    text("GAME OVER!", 300, 350);
+    text("press r to restart", 275, 400);
   }
 }
 public void keyPressed()
@@ -115,5 +120,8 @@ public void keyPressed()
   {
      gameOver = false;
      health = 100;
+     score = 0;
+     flyer.setDirectionX(0);
+     flyer.setDirectionY(0);
   }
 }
