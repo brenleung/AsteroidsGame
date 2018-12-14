@@ -16,7 +16,7 @@ public void setup()
   {
   	shiny[i] = new Star();
   }
-  for (int j = 0; j < 35; j++) {
+  for (int j = 0; j < 30; j++) {
     rocks.add(new Asteroid());
   }
 }
@@ -42,7 +42,7 @@ public void draw()
        rocks.remove(i);
        rocks.add(new Asteroid());
        health = health - 8;
-       score = score - 15;
+       score = score - 8;
      }
     }
     for (int i = 0; i < bill.size(); i++)
@@ -69,7 +69,7 @@ public void draw()
   }
   fill(255);
   textSize(20);
-  text("Health: " + health, 25, 775);
+  text("Health: " + health + "%", 25, 775);
   text("Score: " + score, 25, 750);
   if (health < 0) {
     gameOver = true;
