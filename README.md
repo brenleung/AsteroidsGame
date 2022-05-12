@@ -1,5 +1,11 @@
-Asteroids (Part 1)
+Asteroids
 ==================
+This repository was originally created in 2019 for my AP Computer Science A class. I have forked it from my old account to this account to maintain its original form. Even though this program is rather simple looking back at it, I really like this program, as it was one of the first more in-depth programs that I created (and used multiple files, which was new for me at the time). The final project can be viewed here: https://brenleung.github.io/AsteroidsGame/
+
+The original readme file is below:
+
+----------------------------
+
 In this assignment we will start to replicate the old video game Asteroids. You will write a program that has a space ship that can be controlled with the keyboard. You will need to write a `Spaceship` class. Your `Spaceship` class will extend the `Floater` class, an `abstract` class that represents all things that float in space. 
 
 An `abstract` class is an "incomplete" class. It has `abstract` methods--incomplete methods that have no body. When your class extends an `abstract` class, you typically write the methods that are needed to "complete" the class. _Note: To complete this assignment you will be writing two classes `Spaceship` and `Star`. Do not modify the `Floater` class._
